@@ -18,8 +18,24 @@ struct ContentView: View {
                                                    longitudinalMeters: 300
     )
     
+    let spotList = [
+        Spot(latitude: 35.659099, longitude: 139.7453599),
+        Spot(latitude: 35.658000, longitude: 139.7456316),
+        Spot(latitude: 35.658674, longitude: 139.7462316),
+        Spot(latitude: 35.658404, longitude: 139.744809)
+    ]
+    
     var body: some View {
-        Map(coordinateRegion: $region)
+        Map(
+            coordinateRegion: $region,
+            annotationItems: spotList,
+            annotationContent: { spot in
+                MapMarker(
+                    coordinate: spot.coodinate, tint: .red
+                )
+            }
+        )
+        
             .edgesIgnoringSafeArea(.all)
     }
 }

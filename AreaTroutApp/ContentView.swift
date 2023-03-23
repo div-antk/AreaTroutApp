@@ -18,6 +18,8 @@ struct ContentView: View {
                                                    longitudinalMeters: 300
     )
     
+    @State var showHalfModal = false
+    
     let spotList = [
         Spot(latitude: 35.659099, longitude: 139.7453599),
         Spot(latitude: 35.658000, longitude: 139.7456316),
@@ -25,18 +27,21 @@ struct ContentView: View {
         Spot(latitude: 35.658404, longitude: 139.744809)
     ]
     
+    // マップの描写
     var body: some View {
-        Map(
-            coordinateRegion: $region,
-            annotationItems: spotList,
-            annotationContent: { spot in
-                MapMarker(
-                    coordinate: spot.coodinate, tint: .red
-                )
-            }
-        )
-        
+        ZStack {
+            Map(
+                coordinateRegion: $region,
+                annotationItems: spotList,
+                annotationContent: { spot in
+                    MapMarker(
+                        coordinate: spot.coodinate, tint: .red
+                    )
+                }
+            )
             .edgesIgnoringSafeArea(.all)
+        }
+        
     }
 }
 

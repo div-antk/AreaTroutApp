@@ -10,6 +10,8 @@ import MapKit
 
 struct ContentView: View {
     
+    // TODO: 現在地ボタンを追加する
+    
     @State private var region = MKCoordinateRegion(center: .init(
         latitude: 35.658584,
         longitude: 139.745431
@@ -34,12 +36,20 @@ struct ContentView: View {
                 coordinateRegion: $region,
                 annotationItems: spotList,
                 annotationContent: { spot in
-                    MapMarker(
-                        coordinate: spot.coodinate, tint: .red
-                    )
+                    MapAnnotation (coordinate: spot.coodinate) {
+                        Text("🐟")
+                            .onTapGesture {
+                                self.showHalfModal = true
+                            }
+                    }
+//                    MapMarker(
+//                        coordinate: spot.coodinate, tint: .red
+//                    )
                 }
             )
             .edgesIgnoringSafeArea(.all)
+            .halfSheet(showSheet: $showHalfModal, content: { Text("テスト").frame(maxWidth: .infinity, maxHeight: .infinity)
+            })
         }
         
     }

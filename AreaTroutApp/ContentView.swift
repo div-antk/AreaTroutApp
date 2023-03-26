@@ -49,14 +49,14 @@ struct ContentView: View {
                         }
                 
                     }
-//                    MapMarker(
-//                        coordinate: spot.coodinate, tint: .red
-//                    )
                 }
             )
             .edgesIgnoringSafeArea(.all)
-            .halfSheet(showSheet: $showHalfModal, content: { Text("テスト").frame(maxWidth: .infinity, maxHeight: .infinity)
+            .sheet(isPresented: $showHalfModal, content: {
+                InfoHalfSheet(showSheet: .constant(true))
             })
+//            .halfSheet(showSheet: $showHalfModal, content: { Text("テスト").frame(maxWidth: .infinity)
+//            })
         }
         
     }

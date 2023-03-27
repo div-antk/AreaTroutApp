@@ -13,6 +13,7 @@
 		3BDFF9DC29CB47C80050B32B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BDFF9DB29CB47C80050B32B /* Preview Assets.xcassets */; };
 		3BDFF9E329CB4A700050B32B /* SpotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDFF9E229CB4A700050B32B /* SpotEntity.swift */; };
 		3BE352AD29D1D229006D302B /* InfoHalfSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE352AC29D1D229006D302B /* InfoHalfSheet.swift */; };
+		3BE352AF29D1D91C006D302B /* AnnotationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE352AE29D1D91C006D302B /* AnnotationEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		3BDFF9DB29CB47C80050B32B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3BDFF9E229CB4A700050B32B /* SpotEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotEntity.swift; sourceTree = "<group>"; };
 		3BE352AC29D1D229006D302B /* InfoHalfSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoHalfSheet.swift; sourceTree = "<group>"; };
+		3BE352AE29D1D91C006D302B /* AnnotationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				3BDFF9D629CB47C70050B32B /* ContentView.swift */,
 				3BE352AC29D1D229006D302B /* InfoHalfSheet.swift */,
 				3BDFF9E229CB4A700050B32B /* SpotEntity.swift */,
+				3BE352AE29D1D91C006D302B /* AnnotationEntity.swift */,
 				3BDFF9D829CB47C80050B32B /* Assets.xcassets */,
 				3BDFF9DA29CB47C80050B32B /* Preview Content */,
 			);
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BDFF9D729CB47C70050B32B /* ContentView.swift in Sources */,
+				3BE352AF29D1D91C006D302B /* AnnotationEntity.swift in Sources */,
 				3BDFF9D529CB47C70050B32B /* AreaTroutAppApp.swift in Sources */,
 				3BDFF9E329CB4A700050B32B /* SpotEntity.swift in Sources */,
 				3BE352AD29D1D229006D302B /* InfoHalfSheet.swift in Sources */,

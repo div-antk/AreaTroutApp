@@ -19,6 +19,12 @@ struct ContentView: View {
                                                    latitudinalMeters: 300,
                                                    longitudinalMeters: 300
     )
+   
+    @State private var annotations: [Annotation] = [
+        Annotation(
+            name: "うどん"
+        )
+    ]
     
     @State var showHalfModal = false
     

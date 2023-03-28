@@ -61,8 +61,7 @@ struct ContentView: View {
             .sheet(isPresented: $showHalfModal, content: {
                 InfoHalfSheet(showSheet: .constant(true))
             })
-//            .halfSheet(showSheet: $showHalfModal, content: { Text("テスト").frame(maxWidth: .infinity)
-//            })
+
         }
         
     }

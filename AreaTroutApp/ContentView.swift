@@ -44,11 +44,7 @@ struct ContentView: View {
                 annotationContent: { spot in
                     MapAnnotation (coordinate: spot.coodinate) {
                         ZStack {
-                            Text("🎣")
-                                .frame(width: 40, height: 40)
-                                .background(Color.yellow)
-                                .cornerRadius(30.0)
-                                .shadow(color: .gray, radius: 3, x: 3, y: 3)
+                           SpotIcon()
                                 .onTapGesture {
                                     self.showHalfModal = true
                                 }

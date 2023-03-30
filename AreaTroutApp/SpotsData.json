@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "東京トラウトカントリー（TOKYO Trout Country）",
+        "tel": "0428-83-2788",
+        "business_period": "通年営業",
+        "address": "東京都西多摩郡奥多摩町日原68",
+        "open": "7:00",
+        "close": "17:00",
+        "open2": "夏季イブニング 16:00",
+        "close2": "19:00",
+        "holiday": "木曜日（不定休）",
+        "type": "渓流",
+        "fishing_method": "ルアー、フライ、エサ釣り、テンカラ",
+        "fish": "",
+        "facility": "施設",
+        "price": "料金"
+        "web_site": "http://ttcmayfly.web.fc2.com",
+        "access": ""
+        "regulation": ""
+        "mics": ""
+    }
+]

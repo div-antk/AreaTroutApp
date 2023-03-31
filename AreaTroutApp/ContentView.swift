@@ -59,7 +59,19 @@ struct ContentView: View {
             })
 
         }
-        
+//        self.getLocation(address: <#T##String#>, completion: <#T##([CLLocationDegrees]) -> Void#>)
+    }
+    
+    private func getLocation(address: String, completion: @escaping ([CLLocationDegrees]) -> Void) {
+        CLGeocoder().geocodeAddressString(address) { placemarks, error in
+            guard let latitude = placemarks?.first?.location?.coordinate.latitude else { return }
+            guard let longitude = placemarks?.first?.location?.coordinate.longitude else { return }
+            print("latitude: \(latitude)")
+            print("longitude: \(longitude)")
+            
+            // 緯度経度の情報をクロージャで渡す
+            completion([latitude, longitude])
+        }
     }
 }
 

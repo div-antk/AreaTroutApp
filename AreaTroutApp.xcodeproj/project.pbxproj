@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3B88CC6629D5A79E009E467F /* SpotsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B88CC6529D5A79E009E467F /* SpotsData.json */; };
+		3BCB94E229DB0030008C4F18 /* SpotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB94E129DB0030008C4F18 /* SpotViewModel.swift */; };
+		3BCB94E629DB0186008C4F18 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB94E529DB0186008C4F18 /* Bundle-Decodable.swift */; };
 		3BD3BCEC29D462E30008C68E /* SpotIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3BCEB29D462E30008C68E /* SpotIcon.swift */; };
 		3BDFF9D529CB47C70050B32B /* AreaTroutAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDFF9D429CB47C70050B32B /* AreaTroutAppApp.swift */; };
 		3BDFF9D729CB47C70050B32B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDFF9D629CB47C70050B32B /* ContentView.swift */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		3B88CC6529D5A79E009E467F /* SpotsData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SpotsData.json; sourceTree = "<group>"; };
+		3BCB94E129DB0030008C4F18 /* SpotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotViewModel.swift; sourceTree = "<group>"; };
+		3BCB94E529DB0186008C4F18 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		3BD3BCEB29D462E30008C68E /* SpotIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotIcon.swift; sourceTree = "<group>"; };
 		3BDFF9D129CB47C70050B32B /* AreaTroutApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AreaTroutApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BDFF9D429CB47C70050B32B /* AreaTroutAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaTroutAppApp.swift; sourceTree = "<group>"; };
@@ -42,6 +46,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BCB94E329DB0041008C4F18 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3BCB94E129DB0030008C4F18 /* SpotViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3BCB94E429DB016D008C4F18 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3BCB94E529DB0186008C4F18 /* Bundle-Decodable.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		3BDFF9C829CB47C60050B32B = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +86,8 @@
 				3BE352AC29D1D229006D302B /* InfoHalfSheet.swift */,
 				3BD3BCEB29D462E30008C68E /* SpotIcon.swift */,
 				3BDFF9E229CB4A700050B32B /* SpotEntity.swift */,
+				3BCB94E429DB016D008C4F18 /* Service */,
+				3BCB94E329DB0041008C4F18 /* ViewModel */,
 				3BE352AE29D1D91C006D302B /* AnnotationEntity.swift */,
 				3B88CC6529D5A79E009E467F /* SpotsData.json */,
 				3BDFF9D829CB47C80050B32B /* Assets.xcassets */,
@@ -156,9 +178,11 @@
 				3BDFF9D729CB47C70050B32B /* ContentView.swift in Sources */,
 				3BE352AF29D1D91C006D302B /* AnnotationEntity.swift in Sources */,
 				3BD3BCEC29D462E30008C68E /* SpotIcon.swift in Sources */,
+				3BCB94E629DB0186008C4F18 /* Bundle-Decodable.swift in Sources */,
 				3BDFF9D529CB47C70050B32B /* AreaTroutAppApp.swift in Sources */,
 				3BDFF9E329CB4A700050B32B /* SpotEntity.swift in Sources */,
 				3BE352AD29D1D229006D302B /* InfoHalfSheet.swift in Sources */,
+				3BCB94E229DB0030008C4F18 /* SpotViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

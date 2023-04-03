@@ -6,3 +6,20 @@
 //
 
 import Foundation
+
+final class SpotViewModel: ObservableObject {
+    
+    @Published var spotId: String = ""
+    
+    var spots: [Spot] = Bundle.main.decode("SpotsData.json")
+    
+    var fetchedSpots: [Spot] = []
+    
+    func fetchSpots(spotName: String) {
+        spots.forEach { spot in
+            if spot.name.contains(spotName) {
+                fetchedSpots.append(spot)
+            }
+        }
+    }
+}

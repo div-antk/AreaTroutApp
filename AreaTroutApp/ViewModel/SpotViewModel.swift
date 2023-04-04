@@ -11,7 +11,7 @@ final class SpotViewModel: ObservableObject {
     
     @Published var spotId: String = ""
     
-    var spots: [Spot] = Bundle.main.decode("SpotsData.json")
+    var spots: [Spot] = Bundle.main.decode("spotsData.json")
     
     var fetchedSpots: [Spot] = []
     

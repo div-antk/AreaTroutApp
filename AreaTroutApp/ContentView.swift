@@ -10,6 +10,8 @@ import MapKit
 
 struct ContentView: View {
     
+    @StateObject var viewModel = SpotViewModel()
+    
     // TODO: 現在地ボタンを追加する
     
     @State private var region = MKCoordinateRegion(center: .init(
@@ -27,12 +29,14 @@ struct ContentView: View {
     ]
     
     @State var showHalfModal = false
+    @State var name = "なまえをいれてください"
     
+    // ここに緯度経度を入れてく
     let spotList = [
-        Spot(latitude: 35.659099, longitude: 139.7453599),
-        Spot(latitude: 35.658000, longitude: 139.7456316),
-        Spot(latitude: 35.658674, longitude: 139.7462316),
-        Spot(latitude: 35.658404, longitude: 139.744809)
+        Coordinate(latitude: 35.659099, longitude: 139.7453599),
+        Coordinate(latitude: 35.658000, longitude: 139.7456316),
+        Coordinate(latitude: 35.658674, longitude: 139.7462316),
+        Coordinate(latitude: 35.658404, longitude: 139.744809)
     ]
     
     // マップの描写
@@ -44,22 +48,31 @@ struct ContentView: View {
                 annotationContent: { spot in
                     MapAnnotation (coordinate: spot.coodinate) {
                         ZStack {
-                           SpotIcon()
+                            SpotIcon()
                                 .onTapGesture {
                                     self.showHalfModal = true
                                 }
                         }
-                
+                        
                     }
                 }
             )
+            //            .onAppear(
+            //                self.getLocation(address: SpotViewModel().fetchedSpots.first?.address)
+            //            )
             .edgesIgnoringSafeArea(.all)
             .sheet(isPresented: $showHalfModal, content: {
                 InfoHalfSheet(showSheet: .constant(true))
             })
-
+            Button(action: {test()}, label: { Text(name)})
         }
-//        self.getLocation(address: <#T##String#>, completion: <#T##([CLLocationDegrees]) -> Void#>)
+    }
+
+    private func test() {
+//        ForEach(viewModel.spots) { spot in
+//            self.name = spot.name
+//        }
+        name = viewModel.spots.first?.name ?? ""
     }
     
     private func getLocation(address: String, completion: @escaping ([CLLocationDegrees]) -> Void) {

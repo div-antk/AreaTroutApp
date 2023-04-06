@@ -6,13 +6,54 @@
 //
 
 import Foundation
+import SwiftUI
+import CoreLocation
 
 final class SpotViewModel: ObservableObject {
     
     @Published var spotId: String = ""
     
+    // 釣り場情報
     var spots: [Spot] = Bundle.main.decode("spotsData.json")
     
+    // 住所のみを抽出したリスト
+    var addressList: [String] = []
+    
+    // 座標情報
+    var coordinates: [CLLocationCoordinate2D] = []
+    
+    let geocoder = CLGeocoder()
+    
+    // 住所のみを抽出したリストを作成
+    func makeAdressList(from spots: [[String: Any]]) -> [String] {
+        addressList = spots.compactMap { $0["address"] as? String }
+        print(addressList)
+        return addressList
+    }
+    
+//    func fetchCoordinats(spots: Spot) {
+//        // 釣り場の情報から座標を取得
+//        for _ in spots.address {
+//            geocoder.geocodeAddressString(spots.address) {
+//                placemarks, error in
+//                if let error = error {
+//                    print("座標取得エラー; \(error.localizedDescription)")
+//                    return
+//                }
+//                if let placemark = placemarks?.first {
+//                    if let location = placemark.location {
+//                        let coordinate = location.coordinate
+//                        coordinates.append(coordinate)
+//                    }
+//                }
+//            }
+//        }
+//           
+        
+//    }
+    
+    
+    // 以下は検索実装用
     var fetchedSpots: [Spot] = []
     
     func fetchSpots(spotName: String) {

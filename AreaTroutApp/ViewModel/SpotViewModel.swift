@@ -31,26 +31,24 @@ final class SpotViewModel: ObservableObject {
         return addressList
     }
     
-//    func fetchCoordinats(spots: Spot) {
-//        // 釣り場の情報から座標を取得
-//        for _ in spots.address {
-//            geocoder.geocodeAddressString(spots.address) {
-//                placemarks, error in
-//                if let error = error {
-//                    print("座標取得エラー; \(error.localizedDescription)")
-//                    return
-//                }
-//                if let placemark = placemarks?.first {
-//                    if let location = placemark.location {
-//                        let coordinate = location.coordinate
-//                        coordinates.append(coordinate)
-//                    }
-//                }
-//            }
-//        }
-//           
-        
-//    }
+    func fetchCoordinats(addresses: [String]) {
+        // 釣り場の情報から座標を取得
+        for address in addresses {
+            geocoder.geocodeAddressString(address) {
+                placemarks, error in
+                if let error = error {
+                    print("座標取得エラー; \(error.localizedDescription)")
+                    return
+                }
+                if let placemark = placemarks?.first {
+                    if let location = placemark.location {
+                        let coordinate = location.coordinate
+                        self.coordinates.append(coordinate)
+                    }
+                }
+            }
+        }
+    }
     
     
     // 以下は検索実装用

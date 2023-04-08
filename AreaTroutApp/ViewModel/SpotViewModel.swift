@@ -17,10 +17,10 @@ final class SpotViewModel: ObservableObject {
     var spots: [Spot] = Bundle.main.decode("spotsData.json")
     
     // 住所のみを抽出したリスト
-    var addressList: [String] = []
+    private var addressList: [String] = []
     
     // 座標情報
-    var coordinates: [CLLocationCoordinate2D] = []
+    var coordinates: [Coordinate] = []
     
     let geocoder = CLGeocoder()
     
@@ -42,7 +42,7 @@ final class SpotViewModel: ObservableObject {
                 }
                 if let placemark = placemarks?.first {
                     if let location = placemark.location {
-                        let coordinate = location.coordinate
+                        let coordinate = Coordinate(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
                         self.coordinates.append(coordinate)
                     }
                 }

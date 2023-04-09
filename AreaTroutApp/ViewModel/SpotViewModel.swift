@@ -14,13 +14,13 @@ final class SpotViewModel: ObservableObject {
     @Published var spotId: String = ""
     
     // 釣り場情報
-    var spots: [Spot] = Bundle.main.decode("spotsData.json")
+    @Published var spots: [Spot] = Bundle.main.decode("spotsData.json")
     
     // 住所のみを抽出したリスト
     private var addressList: [String] = []
     
     // 座標情報
-    var coordinates: [Coordinate] = []
+    @Published var coordinates: [Coordinate] = []
     
     let geocoder = CLGeocoder()
     

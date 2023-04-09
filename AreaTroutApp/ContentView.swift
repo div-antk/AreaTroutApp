@@ -10,7 +10,7 @@ import MapKit
 
 struct ContentView: View {
     
-    @StateObject var viewModel = SpotViewModel()
+    @ObservedObject var viewModel = SpotViewModel()
     
     // TODO: 現在地ボタンを追加する
     
@@ -21,7 +21,7 @@ struct ContentView: View {
                                                    latitudinalMeters: 300,
                                                    longitudinalMeters: 300
     )
-   
+    
     @State private var annotations: [Annotation] = [
         Annotation(
             name: "うどん"
@@ -44,7 +44,8 @@ struct ContentView: View {
         ZStack {
             Map(
                 coordinateRegion: $region,
-                annotationItems: spotList,
+//                annotationItems: spotList,
+                annotationItems: viewModel.coordinates,
                 annotationContent: { spot in
                     MapAnnotation (coordinate: spot.coodinate) {
                         ZStack {
@@ -57,9 +58,6 @@ struct ContentView: View {
                     }
                 }
             )
-            //            .onAppear(
-            //                self.getLocation(address: SpotViewModel().fetchedSpots.first?.address)
-            //            )
             .edgesIgnoringSafeArea(.all)
             .sheet(isPresented: $showHalfModal, content: {
                 InfoHalfSheet(showSheet: .constant(true))
@@ -73,18 +71,6 @@ struct ContentView: View {
 //            self.name = spot.name
 //        }
         name = viewModel.spots.first?.name ?? ""
-    }
-    
-    private func getLocation(address: String, completion: @escaping ([CLLocationDegrees]) -> Void) {
-        CLGeocoder().geocodeAddressString(address) { placemarks, error in
-            guard let latitude = placemarks?.first?.location?.coordinate.latitude else { return }
-            guard let longitude = placemarks?.first?.location?.coordinate.longitude else { return }
-            print("latitude: \(latitude)")
-            print("longitude: \(longitude)")
-            
-            // 緯度経度の情報をクロージャで渡す
-            completion([latitude, longitude])
-        }
     }
 }
 

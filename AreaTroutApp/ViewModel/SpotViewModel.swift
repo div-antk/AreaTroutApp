@@ -16,6 +16,10 @@ final class SpotViewModel: ObservableObject {
     // 釣り場情報
     @Published var spots: [Spot] = Bundle.main.decode("spotsData.json")
     
+    init() {
+        createAddressList(from: spots)
+    }
+    
     // 住所のみを抽出したリスト
     private var addressList: [String] = []
     
@@ -24,11 +28,10 @@ final class SpotViewModel: ObservableObject {
     
     let geocoder = CLGeocoder()
     
-    // 住所のみを抽出したリストを作成
-    func makeAdressList(from spots: [[String: Any]]) -> [String] {
-        addressList = spots.compactMap { $0["address"] as? String }
+    // 住所だけのリストを作成
+    func createAddressList(from spots: [Spot]) {
+        addressList = spots.compactMap{ $0.address }
         print(addressList)
-        return addressList
     }
     
     func fetchCoordinats(addresses: [String]) {

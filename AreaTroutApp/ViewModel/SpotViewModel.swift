@@ -18,6 +18,7 @@ final class SpotViewModel: ObservableObject {
     
     init() {
         createAddressList(from: spots)
+        fetchCoordinats(addresses: addressList)
     }
     
     // 住所のみを抽出したリスト

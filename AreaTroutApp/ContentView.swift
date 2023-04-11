@@ -70,7 +70,7 @@ struct ContentView: View {
 //        ForEach(viewModel.spots) { spot in
 //            self.name = spot.name
 //        }
-        name = viewModel.spots.first?.name ?? ""
+//        name = viewModel.spots.first?.name ?? ""
     }
 }
 

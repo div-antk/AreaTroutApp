@@ -22,29 +22,13 @@ struct ContentView: View {
                                                    longitudinalMeters: 300
     )
     
-    @State private var annotations: [Annotation] = [
-        Annotation(
-            name: "うどん"
-        )
-    ]
-    
     @State var showHalfModal = false
-    @State var name = "なまえをいれてください"
-    
-    // ここに緯度経度を入れてく
-    let spotList = [
-        Coordinate(latitude: 35.659099, longitude: 139.7453599),
-        Coordinate(latitude: 35.658000, longitude: 139.7456316),
-        Coordinate(latitude: 35.658674, longitude: 139.7462316),
-        Coordinate(latitude: 35.658404, longitude: 139.744809)
-    ]
     
     // マップの描写
     var body: some View {
         ZStack {
             Map(
                 coordinateRegion: $region,
-//                annotationItems: spotList,
                 annotationItems: viewModel.coordinates,
                 annotationContent: { spot in
                     MapAnnotation (coordinate: spot.coodinate) {
@@ -60,17 +44,10 @@ struct ContentView: View {
             )
             .edgesIgnoringSafeArea(.all)
             .sheet(isPresented: $showHalfModal, content: {
+                // TODO: IDを渡す。渡した先で情報を取得したい
                 InfoHalfSheet(showSheet: .constant(true))
             })
-            Button(action: {test()}, label: { Text(name)})
         }
-    }
-
-    private func test() {
-//        ForEach(viewModel.spots) { spot in
-//            self.name = spot.name
-//        }
-//        name = viewModel.spots.first?.name ?? ""
     }
 }
 

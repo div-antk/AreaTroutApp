@@ -24,7 +24,7 @@ final class SpotViewModel: ObservableObject {
     // 住所のみを抽出したリスト
     private var addressList: [String] = []
     
-    // 座標情報
+    // 座標に変換した住所のリスト
     @Published var coordinates: [Coordinate] = []
     
     let geocoder = CLGeocoder()
@@ -48,6 +48,7 @@ final class SpotViewModel: ObservableObject {
                     if let location = placemark.location {
                         let coordinate = Coordinate(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
                         self.coordinates.append(coordinate)
+                        
                     }
                 }
             }

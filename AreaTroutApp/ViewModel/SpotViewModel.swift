@@ -48,7 +48,8 @@ final class SpotViewModel: ObservableObject {
                     if let location = placemark.location {
                         let coordinate = Coordinate(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
                         self.coordinates.append(coordinate)
-                        
+                        // TODO: addressからEntityのIDを取得してアペンド
+                        print(coordinate)
                     }
                 }
             }

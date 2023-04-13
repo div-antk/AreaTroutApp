@@ -28,4 +28,17 @@ struct Spot: Codable, Identifiable {
     let access: String
     let regulation: String
     let mics: String
+    let coordinate: Coordinate
+}
+
+struct Coordinate: Codable {
+//    let id = UUID()
+    let latitude: Double
+    let longitude: Double
+    var coodinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(
+            latitude: latitude,
+            longitude: longitude
+        )
+    }
 }

@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 
 //struct Coordinate: Identifiable {
-//    let id = UUID()
+//    let id: Int
 //    let latitude: Double
 //    let longitude: Double
 //    var coodinate: CLLocationCoordinate2D {

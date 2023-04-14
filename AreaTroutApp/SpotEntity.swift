@@ -31,8 +31,7 @@ struct Spot: Codable, Identifiable {
     let coordinate: Coordinate
 }
 
-struct Coordinate: Codable {
-//    let id = UUID()
+struct Coordinate: Codable, Identifiable {
     let latitude: Double
     let longitude: Double
     var coodinate: CLLocationCoordinate2D {
@@ -40,5 +39,11 @@ struct Coordinate: Codable {
             latitude: latitude,
             longitude: longitude
         )
+    }
+}
+
+extension Coordinate {
+    var id: UUID {
+        return UUID()
     }
 }

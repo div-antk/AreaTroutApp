@@ -10,7 +10,8 @@ import MapKit
 
 struct ContentView: View {
     
-    @ObservedObject var viewModel = SpotViewModel()
+    // メモ: 最初にインスタンス化するときはStateObjectにしたほうがよい
+    @StateObject var viewModel = SpotViewModel()
     
     // TODO: 現在地ボタンを追加する
     

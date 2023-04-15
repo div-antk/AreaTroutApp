@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B88CC6629D5A79E009E467F /* spotsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B88CC6529D5A79E009E467F /* spotsData.json */; };
+		3B88CC6629D5A79E009E467F /* spots_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B88CC6529D5A79E009E467F /* spots_data.json */; };
 		3BB1143B29DC47B100B6D09E /* CoordinateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB1143A29DC47B100B6D09E /* CoordinateEntity.swift */; };
 		3BCB94E229DB0030008C4F18 /* SpotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB94E129DB0030008C4F18 /* SpotViewModel.swift */; };
 		3BCB94E629DB0186008C4F18 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB94E529DB0186008C4F18 /* Bundle-Decodable.swift */; };
@@ -22,7 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B88CC6529D5A79E009E467F /* spotsData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = spotsData.json; sourceTree = "<group>"; };
+		3B88CC6529D5A79E009E467F /* spots_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = spots_data.json; sourceTree = "<group>"; };
 		3BB1143A29DC47B100B6D09E /* CoordinateEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateEntity.swift; sourceTree = "<group>"; };
 		3BCB94E129DB0030008C4F18 /* SpotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotViewModel.swift; sourceTree = "<group>"; };
 		3BCB94E529DB0186008C4F18 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 				3BCB94E429DB016D008C4F18 /* Service */,
 				3BCB94E329DB0041008C4F18 /* ViewModel */,
 				3BE352AE29D1D91C006D302B /* AnnotationEntity.swift */,
-				3B88CC6529D5A79E009E467F /* spotsData.json */,
+				3B88CC6529D5A79E009E467F /* spots_data.json */,
 				3BDFF9D829CB47C80050B32B /* Assets.xcassets */,
 				3BDFF9DA29CB47C80050B32B /* Preview Content */,
 			);
@@ -167,7 +167,7 @@
 			files = (
 				3BDFF9DC29CB47C80050B32B /* Preview Assets.xcassets in Resources */,
 				3BDFF9D929CB47C80050B32B /* Assets.xcassets in Resources */,
-				3B88CC6629D5A79E009E467F /* spotsData.json in Resources */,
+				3B88CC6629D5A79E009E467F /* spots_data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

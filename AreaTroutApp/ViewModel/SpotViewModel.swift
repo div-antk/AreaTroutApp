@@ -14,7 +14,7 @@ final class SpotViewModel: ObservableObject {
     @Published var spotId: String = ""
     
     // 釣り場情報
-    @Published var spots: [Spot] = Bundle.main.decode("spotsData.json")
+    @Published var spots: [Spot] = Bundle.main.decode("spots_data.json")
     
     init() {
         createAddressList(from: spots)

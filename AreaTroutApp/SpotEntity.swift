@@ -28,12 +28,12 @@ struct Spot: Codable, Identifiable {
     let access: String
     let regulation: String
     let mics: String
-    let coordinate: Coordinate?
+    var coordinate: Coordinate?
 }
 
 struct Coordinate: Codable, Identifiable {
-    let latitude: Double?
-    let longitude: Double?
+    var latitude: Double?
+    var longitude: Double?
     var coodinate: CLLocationCoordinate2D? {
             guard let latitude = latitude,
             let longitude = longitude else {

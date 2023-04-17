@@ -32,7 +32,7 @@ struct ContentView: View {
                 coordinateRegion: $region,
                 annotationItems: viewModel.coordinates,
                 annotationContent: { spot in
-                    MapAnnotation (coordinate: spot.coodinate) {
+                    MapAnnotation (coordinate: spot.coodinate!) {
                         ZStack {
                             SpotIcon()
                                 .onTapGesture {

@@ -17,9 +17,8 @@ final class SpotViewModel: ObservableObject {
     @Published var spots: [Spot] = Bundle.main.decode("spots_data.json")
     
     init() {
-//        createAddressList(from: spots)
+        createAddressList(from: spots)
         fetchCoordinats(addresses: addressList)
-        test(from: spots)
     }
     
     // 住所のみを抽出したリスト
@@ -29,24 +28,6 @@ final class SpotViewModel: ObservableObject {
     @Published var coordinates: [Coordinate] = []
     
     let geocoder = CLGeocoder()
-    
-    func test(from spots: [Spot]) {
-        
-        for spot in spots {
-            geocoder.geocodeAddressString(spot.address) { placemarks, error in
-                guard let placemark = placemarks?.first,
-                      let location = placemark.location else {
-                    return
-                }
-                let coordinate = Coordinate(
-                    latitude: location.coordinate.latitude,
-                    longitude: location.coordinate.longitude
-                )
-                let newSpot = Spot(id: spot.id, name: spot.name, tel: spot.name, business_period: spot.business_period, address: spot.address, open: spot.open, close: spot.close, open2: spot.open2, close2: spot.close2, holiday: spot.holiday, type: spot.type, fishing_method: spot.fishing_method, fish: spot.fish, facility: spot.facility, price: spot.price, web_site: spot.web_site, access: spot.access, regulation: spot.regulation, mics: spot.mics, coordinate: Coordinate(latitude: coordinate.latitude, longitude: coordinate.longitude))
-//                spot.coordinate?.longitude = coordinate.longitude
-            }
-        }
-    }
     
     // 住所だけのリストを作成
     func createAddressList(from spots: [Spot]) {

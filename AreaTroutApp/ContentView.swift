@@ -30,9 +30,9 @@ struct ContentView: View {
         ZStack {
             Map(
                 coordinateRegion: $region,
-                annotationItems: viewModel.coordinates,
+                annotationItems: viewModel.spotsWithCoordinate,
                 annotationContent: { spot in
-                    MapAnnotation (coordinate: spot.coodinate!) {
+                    MapAnnotation (coordinate: spot.coordinate?.coodinate ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)) {
                         ZStack {
                             SpotIcon()
                                 .onTapGesture {

@@ -15,6 +15,8 @@ final class SpotViewModel: ObservableObject {
     
     // 釣り場情報
     @Published var spots: [Spot] = Bundle.main.decode("spots_data.json")
+   
+    @Published var spotsWithCoordinate: [Spot] = []
     
     init() {
         createAddressList(from: spots)
@@ -47,9 +49,12 @@ final class SpotViewModel: ObservableObject {
                 if let placemark = placemarks?.first {
                     if let location = placemark.location {
                         let coordinate = Coordinate(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-                        self.coordinates.append(coordinate)
-                        // TODO: addressからEntityのIDを取得してアペンド
-                        print(coordinate)
+                        if let index = self.spots.firstIndex(where: { $0.address == address }) {
+                            var spot = self.spots[index]
+                            spot.coordinate = coordinate
+                            self.spotsWithCoordinate.append(spot)
+                            print(self.spotsWithCoordinate)
+                        }
                     }
                 }
             }

@@ -12,10 +12,11 @@ struct InfoHalfSheet: View {
     // 釣り場の名称、所在地、営業時間、アクセス方法、料金
     
     @Binding var showSheet: Bool
+    @Binding var spotId: Int
     
     var body: some View {
         VStack {
-            Text("名称")
+            Text((String(spotId)))
             Text("所在地")
             Text("営業時間")
             Text("アクセス方法")
@@ -28,6 +29,6 @@ struct InfoHalfSheet: View {
 
 struct InfoHalfSheet_Previews: PreviewProvider {
     static var previews: some View {
-        InfoHalfSheet(showSheet: .constant(false))
+        InfoHalfSheet(showSheet: .constant(false), spotId: .constant(0))
     }
 }

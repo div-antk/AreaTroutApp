@@ -11,7 +11,7 @@ import CoreLocation
 
 final class SpotViewModel: ObservableObject {
     
-    @Published var spotId: String = ""
+    @Published var spotId: Int = 0
     
     // 釣り場情報
     @Published var spots: [Spot] = Bundle.main.decode("spots_data.json")

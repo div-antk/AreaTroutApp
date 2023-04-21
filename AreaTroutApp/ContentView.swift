@@ -24,6 +24,7 @@ struct ContentView: View {
     )
     
     @State var showHalfModal = false
+    @State var spotId = 0
     
     // マップの描写
     var body: some View {
@@ -37,6 +38,7 @@ struct ContentView: View {
                             SpotIcon()
                                 .onTapGesture {
                                     self.showHalfModal = true
+                                    self.spotId = spot.id
                                 }
                         }
                         
@@ -45,8 +47,8 @@ struct ContentView: View {
             )
             .edgesIgnoringSafeArea(.all)
             .sheet(isPresented: $showHalfModal, content: {
-                // TODO: IDを渡す。渡した先で情報を取得したい
-                InfoHalfSheet(showSheet: .constant(true))
+                // TODO: spotを渡す
+                InfoHalfSheet(showSheet: .constant(true), spotId: $spotId)
             })
         }
     }

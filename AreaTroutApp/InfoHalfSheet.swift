@@ -9,7 +9,9 @@ import SwiftUI
 
 struct InfoHalfSheet: View {
     
-    // 釣り場の名称、所在地、営業時間、アクセス方法、料金
+    // TODO: 釣り場の名称、所在地、営業時間、アクセス方法、料金を表示
+    
+    @StateObject var viewModel = SpotViewModel()
     
     @Binding var showSheet: Bool
     @Binding var spotId: Int

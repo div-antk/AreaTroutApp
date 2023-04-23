@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3B88CC6629D5A79E009E467F /* spots_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B88CC6529D5A79E009E467F /* spots_data.json */; };
-		3BB1143B29DC47B100B6D09E /* CoordinateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB1143A29DC47B100B6D09E /* CoordinateEntity.swift */; };
 		3BCB94E229DB0030008C4F18 /* SpotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB94E129DB0030008C4F18 /* SpotViewModel.swift */; };
 		3BCB94E629DB0186008C4F18 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB94E529DB0186008C4F18 /* Bundle-Decodable.swift */; };
 		3BD3BCEC29D462E30008C68E /* SpotIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3BCEB29D462E30008C68E /* SpotIcon.swift */; };
@@ -23,7 +22,6 @@
 
 /* Begin PBXFileReference section */
 		3B88CC6529D5A79E009E467F /* spots_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = spots_data.json; sourceTree = "<group>"; };
-		3BB1143A29DC47B100B6D09E /* CoordinateEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateEntity.swift; sourceTree = "<group>"; };
 		3BCB94E129DB0030008C4F18 /* SpotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotViewModel.swift; sourceTree = "<group>"; };
 		3BCB94E529DB0186008C4F18 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		3BD3BCEB29D462E30008C68E /* SpotIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotIcon.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 				3BDFF9D629CB47C70050B32B /* ContentView.swift */,
 				3BE352AC29D1D229006D302B /* InfoHalfSheet.swift */,
 				3BD3BCEB29D462E30008C68E /* SpotIcon.swift */,
-				3BB1143A29DC47B100B6D09E /* CoordinateEntity.swift */,
 				3BCF99E729F409680010436E /* Model */,
 				3BCB94E429DB016D008C4F18 /* Service */,
 				3BCB94E329DB0041008C4F18 /* ViewModel */,
@@ -193,7 +190,6 @@
 				3BDFF9D529CB47C70050B32B /* AreaTroutAppApp.swift in Sources */,
 				3BDFF9E329CB4A700050B32B /* SpotModel.swift in Sources */,
 				3BE352AD29D1D229006D302B /* InfoHalfSheet.swift in Sources */,
-				3BB1143B29DC47B100B6D09E /* CoordinateEntity.swift in Sources */,
 				3BCB94E229DB0030008C4F18 /* SpotViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

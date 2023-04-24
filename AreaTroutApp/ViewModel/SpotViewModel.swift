@@ -17,6 +17,7 @@ final class SpotViewModel: ObservableObject {
     @Published var spots: [Spot] = Bundle.main.decode("spots_data.json")
    
     @Published var spotsWithCoordinate: [Spot] = []
+    @Published var spot: Spot?
     
     init() {
         createAddressList(from: spots)
@@ -63,7 +64,7 @@ final class SpotViewModel: ObservableObject {
     
     // IDから釣り場情報を取得
     func fetchSpot(spotID: Int) {
-        let spot = spots.first(where: {$0.id == spotID})
+        self.spot = spots.first(where: {$0.id == spotID})
     }
     
     // 以下は検索実装用

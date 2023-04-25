@@ -15,17 +15,20 @@ struct InfoHalfSheet: View {
     
     @Binding var showSheet: Bool
     @Binding var spotId: Int
-    
+        
     var body: some View {
         VStack {
-            Text((String(spotId)))
-            Text("所在地")
-            Text("営業時間")
-            Text("アクセス方法")
-            Text("料金")
+            Text(viewModel.spot?.name ?? "")
+            Text(viewModel.spot?.address ?? "")
+            Text(viewModel.spot?.open ?? "")
+            Text(viewModel.spot?.access ?? "")
+            Text(viewModel.spot?.price ?? "")
             
         }
         .presentationDetents([.medium])
+        .onAppear {
+            viewModel.fetchSpot(spotID: spotId)
+        }
     }
 }
 

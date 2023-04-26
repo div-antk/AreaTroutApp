@@ -35,7 +35,6 @@ final class SpotViewModel: ObservableObject {
     // 住所だけのリストを作成
     func createAddressList(from spots: [Spot]) {
         addressList = spots.compactMap{ $0.address }
-        print(addressList)
     }
     
     func fetchCoordinats(addresses: [String]) {
@@ -54,7 +53,6 @@ final class SpotViewModel: ObservableObject {
                             var spot = self.spots[index]
                             spot.coordinate = coordinate
                             self.spotsWithCoordinate.append(spot)
-                            print(self.spotsWithCoordinate)
                         }
                     }
                 }

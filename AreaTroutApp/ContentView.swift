@@ -47,7 +47,6 @@ struct ContentView: View {
             )
             .edgesIgnoringSafeArea(.all)
             .sheet(isPresented: $showHalfModal, content: {
-                // TODO: spotを渡す
                 InfoHalfSheet(showSheet: .constant(true), spotId: $spotId)
             })
         }

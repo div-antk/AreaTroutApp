@@ -38,36 +38,61 @@ final class SpotViewModel: ObservableObject {
         print(addressList)
     }
     
+//    func fetchCoordinats(addresses: [String]) {
+//
+//        let group = DispatchGroup()
+//
+//        // 釣り場の情報から座標を取得
+//        for address in addresses {
+//
+//            group.enter()
+//
+//            // geocodeAddressStringは非同期処理であるため、すべての処理が完了するまで待機する必要がある
+//            geocoder.geocodeAddressString(address) {
+//                placemarks, error in
+//                if let error = error {
+//                    print("座標取得エラー: \(error.localizedDescription)")
+//                } else if let placemark = placemarks?.first, let location = placemark.location {
+//                    let coordinate = Coordinate(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+//                    if let index = self.spots.firstIndex(where: { $0.address == address }) {
+//                        var spot = self.spots[index]
+//                        spot.coordinate = coordinate
+//                        self.spotsWithCoordinate.append(spot)
+//                        print(self.spotsWithCoordinate)
+//                    }
+//                }
+//                group.leave()
+//            }
+//        }
+//        group.notify(queue: .main) {
+//            print(self.spotsWithCoordinate)
+//        }
+//    }
+    
     func fetchCoordinats(addresses: [String]) {
-        
-        let group = DispatchGroup()
-        
-        // 釣り場の情報から座標を取得
+        let group = DispatchGroup() // 外側のDispatchGroup
         for address in addresses {
-            
-            group.enter()
-            
-            // geocodeAddressStringは非同期処理であるため、すべての処理が完了するまで待機する必要がある
+            group.enter() // 1つのgeocodingごとにenter()
             geocoder.geocodeAddressString(address) {
                 placemarks, error in
                 if let error = error {
-                    print("座標取得エラー: \(error.localizedDescription)")
+                    print("座標取得エラー; \(error.localizedDescription)")
                 } else if let placemark = placemarks?.first, let location = placemark.location {
                     let coordinate = Coordinate(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
                     if let index = self.spots.firstIndex(where: { $0.address == address }) {
                         var spot = self.spots[index]
                         spot.coordinate = coordinate
                         self.spotsWithCoordinate.append(spot)
-                        print(self.spotsWithCoordinate)
                     }
                 }
-                group.leave()
+                group.leave() // 1つのgeocodingごとにleave()
             }
         }
         group.notify(queue: .main) {
             print(self.spotsWithCoordinate)
         }
     }
+
     
     // IDから釣り場情報を取得
     func fetchSpot(spotID: Int) {

@@ -40,5 +40,26 @@
         "access": "",
         "regulation": "",
         "mics": ""
+    },
+    {
+        "id": 3,
+        "name": "浅川国際鱒釣場",
+        "tel": "042-651-0869",
+        "business_period": "通年営業",
+        "address": "東京都八王子市上恩方町1353",
+        "open": "4月～11月 8:00",
+        "close": "16:30",
+        "open2": "12月～3月 8:30",
+        "close2": "16:00",
+        "holiday": "無休",
+        "type": "渓流",
+        "fishing_method": "ルアー、フライ、エサ釣り",
+        "fish": "ニジマス",
+        "facility": "駐車場、レストハウス、バーベキュー施設、レンタル竿",
+        "price": "ルアー/フライ 3,750円、エサ釣り 3,250円,
+        "web_site": "http://www.ongatamasuturiba.com",
+        "access": "",
+        "regulation": "",
+        "mics": ""
     }
 ]

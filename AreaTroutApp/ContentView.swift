@@ -26,6 +26,10 @@ struct ContentView: View {
     @State var showHalfModal = false
     @State var spotId = 0
     
+    var addresses: [String] {
+        viewModel.spots.map { $0.address }
+    }
+    
     // マップの描写
     var body: some View {
         ZStack {
@@ -41,10 +45,12 @@ struct ContentView: View {
                                     self.spotId = spot.id
                                 }
                         }
-                        
                     }
                 }
             )
+            .onAppear {
+                viewModel.fetchCoordinats(addresses: addresses)
+            }
             .edgesIgnoringSafeArea(.all)
             .sheet(isPresented: $showHalfModal, content: {
                 InfoHalfSheet(showSheet: .constant(true), spotId: $spotId)

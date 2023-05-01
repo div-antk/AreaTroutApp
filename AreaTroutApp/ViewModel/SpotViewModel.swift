@@ -19,55 +19,93 @@ final class SpotViewModel: ObservableObject {
     @Published var spotsWithCoordinate: [Spot] = []
     @Published var spot: Spot?
     
-    init() {
-        createAddressList(from: spots)
-        fetchCoordinats(addresses: addressList)
-    }
+    @Published var isLoading = false
     
-    // 住所のみを抽出したリスト
-    private var addressList: [String] = []
+//    init() {
+//        createAddressList(from: spots)
+//        fetchCoordinates(addresses: addressList) {
+//            spotsWithCoordinate in
+//            self.spotsWithCoordinate = spotsWithCoordinate
+//        }
+//    }
     
     // 座標に変換した住所のリスト
     @Published var coordinates: [Coordinate] = []
     
     let geocoder = CLGeocoder()
     
-    // 住所だけのリストを作成
-    func createAddressList(from spots: [Spot]) {
-        addressList = spots.compactMap{ $0.address }
-        print(addressList)
+    func loading() {
+        isLoading = true
+        let addressList = spots.map { $0.address }
+        print("(´・ω・｀)", addressList)
+
+        fetchCoordinates(addresses: addressList) { spots in
+            self.spots = spots
+            self.isLoading = false
+        }
     }
     
-    func fetchCoordinats(addresses: [String]) {
-
-        let group = DispatchGroup()
-
-        // 釣り場の情報から座標を取得
+    
+//    func fetchCoordinates(addresses: [String]) {
+//
+//        let group = DispatchGroup()
+//
+//        // 釣り場の情報から座標を取得
+//        for address in addresses {
+//
+//            group.enter()
+//
+//            // geocodeAddressStringは非同期処理であるため、すべての処理が完了するまで待機する必要がある
+//            geocoder.geocodeAddressString(address) {
+//                placemarks, error in
+//                if let error = error {
+//                    print("座標取得エラー: \(error.localizedDescription)")
+//                } else if let placemark = placemarks?.first, let location = placemark.location {
+//                    let coordinate = Coordinate(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+//                    if let index = self.spots.firstIndex(where: { $0.address == address }) {
+//                        var spot = self.spots[index]
+//                        spot.coordinate = coordinate
+//                        self.spotsWithCoordinate.append(spot)
+//                        print("(´・ω・｀)", self.spotsWithCoordinate)
+//                    }
+//                }
+//                group.leave()
+//            }
+//        }
+//        group.notify(queue: .main) {
+//            print(self.spotsWithCoordinate)
+//        }
+//    }
+    
+    func fetchCoordinates(addresses: [String], completion: @escaping ([Spot]) -> Void) {
+        
+        var spotsWithCoordinate = [Spot]()
+        let dispatchGroup = DispatchGroup()
+        
         for address in addresses {
-
-            group.enter()
-
-            // geocodeAddressStringは非同期処理であるため、すべての処理が完了するまで待機する必要がある
-            geocoder.geocodeAddressString(address) {
-                placemarks, error in
+            dispatchGroup.enter()
+            geocoder.geocodeAddressString(address) { placemarks, error in
+                
                 if let error = error {
                     print("座標取得エラー: \(error.localizedDescription)")
+                    
                 } else if let placemark = placemarks?.first, let location = placemark.location {
                     let coordinate = Coordinate(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-                    if let index = self.spots.firstIndex(where: { $0.address == address }) {
-                        var spot = self.spots[index]
-                        spot.coordinate = coordinate
-                        self.spotsWithCoordinate.append(spot)
-                        print(self.spotsWithCoordinate)
+
+                    if let spot = self.spots.first(where: { $0.address == address }) {
+                        var newSpot = spot
+                        newSpot.coordinate = coordinate
+                        spotsWithCoordinate.append(newSpot)
                     }
                 }
-                group.leave()
+                dispatchGroup.leave()
             }
         }
-        group.notify(queue: .main) {
-            print(self.spotsWithCoordinate)
+        dispatchGroup.notify(queue: .main) {
+            completion(spotsWithCoordinate)
         }
     }
+
     
     // IDから釣り場情報を取得
     func fetchSpot(spotID: Int) {

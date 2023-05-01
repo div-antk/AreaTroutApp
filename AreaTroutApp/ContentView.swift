@@ -49,7 +49,7 @@ struct ContentView: View {
                 }
             )
             .onAppear {
-                viewModel.fetchCoordinats(addresses: addresses)
+                viewModel.loading()
             }
             .edgesIgnoringSafeArea(.all)
             .sheet(isPresented: $showHalfModal, content: {

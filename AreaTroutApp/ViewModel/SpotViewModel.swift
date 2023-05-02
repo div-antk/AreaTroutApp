@@ -34,7 +34,7 @@ final class SpotViewModel: ObservableObject {
     
     let geocoder = CLGeocoder()
     
-    func loading() {
+    func fetchSpots() {
         isLoading = true
         let addressList = spots.map { $0.address }
         print("(´・ω・｀)", addressList)
@@ -108,14 +108,14 @@ final class SpotViewModel: ObservableObject {
 
     
     // IDから釣り場情報を取得
-    func fetchSpot(spotID: Int) {
+    func fetchSpotFromId(spotID: Int) {
         self.spot = spots.first(where: {$0.id == spotID})
     }
     
     // 以下は検索実装用
     var fetchedSpots: [Spot] = []
     
-    func fetchSpots(spotName: String) {
+    func fetchSpotsFromName(spotName: String) {
         spots.forEach { spot in
             if spot.name.contains(spotName) {
                 fetchedSpots.append(spot)

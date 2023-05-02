@@ -27,7 +27,7 @@ struct InfoHalfSheet: View {
         }
         .presentationDetents([.medium])
         .onAppear {
-            viewModel.fetchSpot(spotID: spotId)
+            viewModel.fetchSpotFromId(spotID: spotId)
         }
     }
 }
